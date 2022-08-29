@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-d
+  labels:
+    estado: "1"
+  namespace: udemy-k8s
+spec: #Especificaciónes es el estado ideal del tipo de recurso.
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 4 #Indica al controlador que ejecute 2 Pods.
+  template: # Plantilla que define los containers.nginx-d-f7ccf9478-k6fzk
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx
+          ports:
+            - containerPort: 80

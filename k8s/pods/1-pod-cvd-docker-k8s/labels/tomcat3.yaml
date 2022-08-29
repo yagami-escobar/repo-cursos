@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat3
+  namespace: udemy-k8s
+  labels:
+    estado: 'produccion'
+spec:
+  containers:
+    - name: tomcat
+      image: tomcat

@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: redis-django
+  namespace: udemy-k8s
+  labels:
+    app: web
+spec:
+  containers:
+    - name: almacen
+      image: redis
+      ports:
+        - containerPort: 6379
+    - name: frontal
+      image: django
+      ports:
+        - containerPort: 8000

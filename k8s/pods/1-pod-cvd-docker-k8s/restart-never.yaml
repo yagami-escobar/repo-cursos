@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: busybox-never
+  namespace: udemy-k8s
+  labels:
+    app: app1
+spec:
+  containers:
+    - name: busybox
+      image: busybox
+      command: ['sh', '-c', 'echo Example of failure Pod && exit 1']
+  restartPolicy: Never

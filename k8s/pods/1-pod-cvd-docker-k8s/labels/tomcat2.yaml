@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tomcat2
+  namespace: udemy-k8s
+  labels:
+    estado: 'testing'
+spec:
+  containers:
+    - name: tomcat
+      image: tomcat

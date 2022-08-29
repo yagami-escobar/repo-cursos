@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deploy
+  labels:
+    app: nginx
+    estado: "1"
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 5 # indica al controller que ejecuta 5 pods
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.7.9
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            memory: "200Mi"
+          requests:
+            memory: "100M"
